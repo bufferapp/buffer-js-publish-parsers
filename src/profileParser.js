@@ -25,4 +25,5 @@ module.exports = profile => ({
   open: false,
   organizationRole: profile.organization_role,
   directPostingEnabled: profile.direct_posting_enabled,
+  googleAnalyticaEnabled: profile.preferences.utm_tracking,
 })
