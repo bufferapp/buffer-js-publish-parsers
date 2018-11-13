@@ -157,6 +157,12 @@ module.exports = post => {
     statistics: post.statistics,
     service_geolocation_id: post.service_geolocation_id,
     service_geolocation_name: post.service_geolocation_name,
-    user: post.user,
+    user: {
+      email: post.user.email,
+      name: post.user.name,
+      gravatar: post.user.gravatar,
+      avatar: post.user.avatar,
+      id: post.user_id,
+    },
   }
 }
