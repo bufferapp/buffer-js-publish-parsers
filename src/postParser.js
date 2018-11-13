@@ -76,6 +76,18 @@ const getPostType = ({ post }) => {
   return 'text'
 }
 
+const getUser = post => {
+  if (!post.user) return
+
+  return {
+    email: post.user.email,
+    name: post.user.name,
+    gravatar: post.user.gravatar,
+    avatar: post.user.avatar,
+    id: post.user_id,
+  }
+}
+
 module.exports = post => {
   const media = post.media || {}
   const isVideo = media.video
@@ -157,6 +169,6 @@ module.exports = post => {
     statistics: post.statistics,
     service_geolocation_id: post.service_geolocation_id,
     service_geolocation_name: post.service_geolocation_name,
-    user: post.user,
+    user: getUser(post),
   }
 }
