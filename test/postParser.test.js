@@ -131,4 +131,25 @@ describe('post parser', () => {
     const parsedPost = postParser(linkPost)
     expect(parsedPost.type).toEqual('link')
   })
+
+  it('identifies user when post has user and user_id properties', () => {
+    const post = {
+      user: {
+        name: 'User1',
+        email: 'user@buffer.com',
+        gravatar: '',
+        avatar: '',
+      },
+      user_id: 1234,
+    }
+    const user = {
+      name: 'User1',
+      email: 'user@buffer.com',
+      gravatar: '',
+      avatar: '',
+      id: 1234,
+    }
+    const parsedPost = postParser(post)
+    expect(parsedPost.user).toEqual(user)
+  })
 })
