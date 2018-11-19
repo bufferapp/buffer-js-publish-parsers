@@ -16,7 +16,7 @@
     "src"
   ],
   "dependencies": {
-    "@bufferapp/publish-formatters": "1.9.27",
+    "@bufferapp/publish-formatters": "1.9.28",
     "twitter-text": "3.0.0"
   },
   "devDependencies": {
