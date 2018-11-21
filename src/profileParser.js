@@ -1,19 +1,3 @@
-function checkIsContributor(profile) {
-  if (!profile) {
-    return false
-  }
-  if (profile.organization_id) {
-    return profile.organization_role === 2
-  }
-  if (
-    profile.permissions &&
-    typeof profile.permissions.indexOf !== 'undefined'
-  ) {
-    return profile.permissions.indexOf('profile_edit') === -1
-  }
-  return false
-}
-
 module.exports = profile => ({
   id: profile.id,
   avatarUrl: profile.avatar_https,
@@ -42,5 +26,5 @@ module.exports = profile => ({
   organizationRole: profile.organization_role,
   directPostingEnabled: profile.direct_posting_enabled,
   googleAnalyticsEnabled: profile.preferences.utm_tracking,
-  isContributor: checkIsContributor(profile),
+  isContributor: profile.is_contributor,
 })
