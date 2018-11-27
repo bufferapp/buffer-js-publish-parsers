@@ -25,6 +25,7 @@ module.exports = profile => ({
   open: false,
   organizationRole: profile.organization_role,
   directPostingEnabled: profile.direct_posting_enabled,
+  isInstagramBusiness: profile.is_instagram_business,
   googleAnalyticsEnabled: profile.preferences.utm_tracking,
   isContributor: profile.is_contributor,
 })
