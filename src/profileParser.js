@@ -31,7 +31,9 @@ module.exports = profile => ({
   // Remove when publish stops importing Analyze components
   organizationId: '',
   username: profile.service_username,
-  isAnalyticsSupported: ((profile && profile.business &&
-    (profile.service === 'twitter' || profile.service === 'facebook'))),
+  isAnalyticsSupported:
+    profile &&
+    profile.business &&
+    (profile.service === 'twitter' || profile.service === 'facebook'),
   //
 })
