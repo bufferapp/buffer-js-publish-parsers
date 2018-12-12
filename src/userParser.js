@@ -29,5 +29,5 @@ module.exports = userData => ({
   ),
   profile_limit: userData.profile_limit,
   profiles_schedules_slots: userData.profiles_schedules_slots,
-  hasNewPublish: userData.hasNewPublish,
+  hasNewPublish: userData.in_new_publish_rollout,
 })
