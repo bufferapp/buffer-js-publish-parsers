@@ -28,4 +28,5 @@ module.exports = userData => ({
     'instagram-location-tagging',
   ),
   profile_limit: userData.profile_limit,
+  hasNewPublish: userData.hasNewPublish,
 })
