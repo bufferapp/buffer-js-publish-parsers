@@ -170,5 +170,6 @@ module.exports = post => {
     service_geolocation_id: post.service_geolocation_id,
     service_geolocation_name: post.service_geolocation_name,
     user: getUser(post),
+    serviceLink: post.service_link,
   }
 }
