@@ -28,6 +28,7 @@ module.exports = profile => ({
   isInstagramBusiness: profile.is_instagram_business,
   googleAnalyticsEnabled: profile.preferences.utm_tracking,
   isContributor: profile.is_contributor,
+  isDisconnected: profile.oauth_broken,
   // Remove when publish stops importing Analyze components
   organizationId: '',
   username: profile.service_username,
