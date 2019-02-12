@@ -32,4 +32,14 @@ module.exports = userData => ({
   profile_limit: userData.profile_limit,
   profiles_schedules_slots: userData.profiles_schedules_slots,
   hasNewPublish: userData.in_new_publish_rollout,
+  hasEmailNotifications: {
+    bufferEmpty: userData.email_notifications.includes('buffer_empty'),
+    bufferTips: userData.email_notifications.includes('buffer_tips'),
+    updateFailures: userData.email_notifications.includes('update_failures'),
+    updateSuccesses: userData.email_notifications.includes('update_successes'),
+    weeklyDigests: userData.email_notifications.includes('weekly_digests'),
+    newContributions: userData.email_notifications.includes('new_contributions'),
+    postMovedBackToDrafts: userData.email_notifications.includes('post_moved_back_to_drafts'),
+    celebrations: userData.email_notifications.includes('celebrations'),
+  },
 })
