@@ -38,8 +38,12 @@ module.exports = userData => ({
     updateFailures: userData.email_notifications.includes('update_failures'),
     updateSuccesses: userData.email_notifications.includes('update_successes'),
     weeklyDigests: userData.email_notifications.includes('weekly_digests'),
-    newContributions: userData.email_notifications.includes('new_contributions'),
-    postMovedBackToDrafts: userData.email_notifications.includes('post_moved_back_to_drafts'),
+    newContributions: userData.email_notifications.includes(
+      'new_contributions',
+    ),
+    postMovedBackToDrafts: userData.email_notifications.includes(
+      'post_moved_back_to_drafts',
+    ),
     celebrations: userData.email_notifications.includes('celebrations'),
   },
 })
