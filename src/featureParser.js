@@ -7,7 +7,7 @@ module.exports = featureData => {
       features.business === true
         ? 'business'
         : features.pro === true
-        ? 'pro'
-        : 'free',
+          ? 'pro'
+          : 'free',
   }
 }
