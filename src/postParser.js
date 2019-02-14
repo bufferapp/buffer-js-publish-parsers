@@ -177,5 +177,7 @@ module.exports = post => {
     service_geolocation_name: post.service_geolocation_name,
     user: getUser(post),
     serviceLink: post.service_link,
+    dueTime: post.due_time,
+    sharedBy: post.shared_by,
   }
 }
