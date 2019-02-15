@@ -37,10 +37,16 @@ const getPostActionString = ({ post }) => {
   return `This post ${post.sent_at ? 'was' : 'will be'} sent ${dateString}.`
 }
 
+const getPostError = error => {
+  const isObject = typeof error === 'object' && error !== null
+  return isObject ? error.text || '' : error || ''
+}
+
 const getPostDetails = ({ post }) => ({
   postAction: getPostActionString({ post }),
   isRetweet: post.retweet !== undefined,
-  error: post.error || '',
+  error: getPostError(post.error),
+  errorLink: post.error && post.error.link ? post.error.link : null,
   isCustomScheduled: post.scheduled_at ? true : false,
   isInstagramReminder:
     post.profile_service === 'instagram' && !post.can_send_direct
@@ -171,5 +177,7 @@ module.exports = post => {
     service_geolocation_name: post.service_geolocation_name,
     user: getUser(post),
     serviceLink: post.service_link,
+    dueTime: post.due_time,
+    sharedBy: post.shared_by,
   }
 }

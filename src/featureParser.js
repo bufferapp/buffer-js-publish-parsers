@@ -4,8 +4,10 @@ module.exports = featureData => {
   return {
     features: features || {},
     planName:
-      Object.keys(features || {}).filter(k => features[k] === true).length > 0
-        ? 'pro'
-        : 'free',
+      features.business === true
+        ? 'business'
+        : features.pro === true
+          ? 'pro'
+          : 'free',
   }
 }
