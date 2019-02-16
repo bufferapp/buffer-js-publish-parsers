@@ -46,4 +46,5 @@ module.exports = userData => ({
     ),
     celebrations: userData.email_notifications.includes('celebrations'),
   },
+  canStartBusinessTrial: userData.can_start_business_trial,
 })
