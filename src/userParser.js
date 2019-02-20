@@ -54,7 +54,7 @@ module.exports = userData => ({
         onTrial: userData.on_awesome_trial,
         postTrialCost: '',
         trialLength: userData.awesome_trial_length,
-        trialTimeRemaining: userData.awesome_trial_time_remaining
+        trialTimeRemaining: userData.awesome_trial_time_remaining,
       }
     : {
         hasCardDetails: userData.has_card_details,
@@ -62,6 +62,6 @@ module.exports = userData => ({
         onTrial: userData.on_trial,
         postTrialCost: userData.post_trial_cost,
         trialLength: userData.trial_length,
-        trialTimeRemaining: userData.trial_time_remaining
+        trialTimeRemaining: userData.trial_time_remaining,
       },
 })
