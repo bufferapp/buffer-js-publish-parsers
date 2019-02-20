@@ -47,12 +47,21 @@ module.exports = userData => ({
     celebrations: userData.email_notifications.includes('celebrations'),
   },
   canStartBusinessTrial: userData.can_start_business_trial,
-  trial: {
-    hasCardDetails: userData.has_card_details,
-    hasTrialExtended: userData.has_trial_extended,
-    onTrial: userData.on_trial,
-    postTrialCost: userData.post_trial_cost,
-    trialLength: userData.trial_length,
-    trialTimeRemaining: userData.trial_time_remaining,
-  },
+  trial: userData.on_awesome_trial
+    ? {
+        hasCardDetails: userData.has_card_details,
+        hasTrialExtended: userData.has_trial_extended,
+        onTrial: userData.on_awesome_trial,
+        postTrialCost: '',
+        trialLength: userData.awesome_trial_length,
+        trialTimeRemaining: userData.awesome_trial_time_remaining,
+      }
+    : {
+        hasCardDetails: userData.has_card_details,
+        hasTrialExtended: userData.has_trial_extended,
+        onTrial: userData.on_trial,
+        postTrialCost: userData.post_trial_cost,
+        trialLength: userData.trial_length,
+        trialTimeRemaining: userData.trial_time_remaining,
+      },
 })
