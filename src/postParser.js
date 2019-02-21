@@ -94,6 +94,14 @@ const getUser = post => {
   }
 }
 
+const removeDuplicates = (arr, prop) => {
+    let obj = {};
+    return Object.keys(arr.reduce((prev, next) => {
+        if(!obj[next[prop]]) obj[next[prop]] = next;
+        return obj;
+    }, obj)).map((i) => obj[i]);
+}
+
 module.exports = post => {
   const media = post.media || {}
   const isVideo = media.video
@@ -110,7 +118,7 @@ module.exports = post => {
   const canHaveLinks =
     post.profile_service === 'twitter' || post.profile_service === 'facebook'
 
-  const links = parseTwitterLinks(text)
+  const linksCreator = parseTwitterLinks(text)
     .concat(
       post.profile_service === 'facebook'
         ? parseFacebookEntities(text, post.entities)
@@ -120,6 +128,8 @@ module.exports = post => {
       ({ indices: [startIdxA] }, { indices: [startIdxB] }) =>
         startIdxA - startIdxB,
     )
+
+  const links = removeDuplicates(linksCreator, 'indices');
 
   const retweetCommentLinks = canHaveLinks
     ? parseTwitterLinks(retweetComment)
