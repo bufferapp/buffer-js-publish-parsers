@@ -96,10 +96,12 @@ const getUser = post => {
 
 const removeDuplicates = (arr, prop) => {
   let obj = {}
-  return Object.keys(arr.reduce((prev, next) => {
-    if (!obj[next[prop]]) obj[next[prop]] = next
-    return obj
-  }, obj)).map((i) => obj[i])
+  return Object.keys(
+    arr.reduce((prev, next) => {
+      if (!obj[next[prop]]) obj[next[prop]] = next
+      return obj
+    }, obj)
+  ).map(i => obj[i])
 }
 
 module.exports = post => {
@@ -129,7 +131,7 @@ module.exports = post => {
         startIdxA - startIdxB,
     )
 
-  const links = removeDuplicates(linksCreator, 'indices');
+  const links = removeDuplicates(linksCreator, 'indices')
 
   const retweetCommentLinks = canHaveLinks
     ? parseTwitterLinks(retweetComment)
