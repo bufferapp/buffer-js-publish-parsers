@@ -1,6 +1,6 @@
 {
   "name": "@bufferapp/publish-parsers",
-  "version": "1.13.2",
+  "version": "1.13.3",
   "description": "Publish parsing utilities",
   "main": "lib/index.js",
   "scripts": {
