@@ -100,7 +100,7 @@ const removeDuplicates = (arr, prop) => {
     arr.reduce((prev, next) => {
       if (!obj[next[prop]]) obj[next[prop]] = next
       return obj
-    }, obj)
+    }, obj),
   ).map(i => obj[i])
 }
 
