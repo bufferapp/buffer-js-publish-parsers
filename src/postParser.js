@@ -120,12 +120,27 @@ module.exports = post => {
   const canHaveLinks =
     post.profile_service === 'twitter' || post.profile_service === 'facebook'
 
-  const linksCreator = parseTwitterLinks(text)
-    .concat(
-      post.profile_service === 'facebook'
-        ? parseFacebookEntities(text, post.entities)
-        : [],
-    )
+  const facebookLinks =
+    post.profile_service === 'facebook'
+      ? parseFacebookEntities(text, post.entities)
+      : []
+
+  const otherLinks = parseTwitterLinks(text)
+
+  const safeOtherLinks = otherLinks.filter(link => {
+    const startIdx = link.indices[0]
+    const endIdx = link.indices[1]
+    const hasClash = facebookLinks.some(facebookLink => {
+      const facebookStartIdx = facebookLink.indices[0]
+      const facebookEndIdx = facebookLink.indices[1]
+      const safe = endIdx < facebookStartIdx || startIdx > facebookEndIdx
+      return !safe
+    })
+    return !hasClash
+  })
+
+  const linksCreator = facebookLinks
+    .concat(safeOtherLinks)
     .sort(
       ({ indices: [startIdxA] }, { indices: [startIdxB] }) =>
         startIdxA - startIdxB,
