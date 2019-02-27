@@ -20,7 +20,12 @@ const getPostActionString = ({ post }) => {
   })
 
   // to run in every situation except when can_send_direct is explicitly false.
-  if (post.scheduled_at && post.can_send_direct !== false) {
+  // if pinned is explicitly set to true, then post is not custom scheduled
+  if (
+    post.scheduled_at &&
+    post.can_send_direct !== false &&
+    post.pinned !== true
+  ) {
     return `This post ${
       post.sent_at ? 'was' : 'is'
     } custom scheduled for ${dateString}.`
