@@ -211,5 +211,7 @@ module.exports = post => {
     serviceLink: post.service_link,
     dueTime: post.due_time,
     sharedBy: post.shared_by,
+    commentEnabled: post.comment_enabled,
+    commentText: post.comment_text,
   }
 }
