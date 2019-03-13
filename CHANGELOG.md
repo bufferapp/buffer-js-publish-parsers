@@ -7,3 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## 1.14.2 - 2019-03-12
 ### Changed
 - Add daily view feature flip to userParser
+
+## 1.14.3 - 2019-03-13
+### Changed
+- Add commentEnabled and commentText fields to postParser
