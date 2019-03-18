@@ -5,6 +5,7 @@ module.exports = profile => ({
   type: profile.service,
   handle: profile.service_username,
   isManager: profile.organization_role === 1,
+  ownerId: profile.user_id,
   pendingCount: profile.counts.pending,
   sentCount: profile.counts.sent,
   timezone: profile.timezone,
