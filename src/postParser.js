@@ -69,7 +69,9 @@ const getRetweetProfileInfo = post => {
     name: retweet.profile_name || retweet.display_name || 'UNKNOWN',
     handle: `@${retweet.username || retweet.user_name || 'UNKNOWN'}`,
     avatarUrl:
-      (retweet.avatars && retweet.avatars.https) || retweet.avatar_https || 'https://static.buffer.com/images/app/placeholder-twitter.png',
+      (retweet.avatars && retweet.avatars.https) ||
+      retweet.avatar_https ||
+      'https://static.buffer.com/images/app/placeholder-twitter.png',
   }
 }
 
