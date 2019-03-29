@@ -62,4 +62,5 @@ module.exports = userData => ({
         trialTimeRemaining: userData.trial_time_remaining,
       },
   messages: userData.messages,
+  isNonprofit: userData.billing_status_nonprofit,
 })
