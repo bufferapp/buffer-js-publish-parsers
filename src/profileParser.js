@@ -2,6 +2,7 @@ module.exports = profile => ({
   id: profile.id,
   avatarUrl: profile.avatar_https,
   avatar_https: profile.avatar_https,
+  canPostComment: profile.can_post_comment,
   type: profile.service,
   handle: profile.service_username,
   isManager: profile.organization_role === 1,
