@@ -1,3 +1,6 @@
+const isInstagramAnalyticsSupported = profile =>
+  profile.service === 'instagram' && profile.is_instagram_business
+
 module.exports = profile => ({
   id: profile.id,
   avatarUrl: profile.avatar_https,
@@ -38,6 +41,7 @@ module.exports = profile => ({
   isAnalyticsSupported:
     profile &&
     profile.business &&
-    (profile.service === 'twitter' || profile.service === 'facebook'),
-  //
+    (profile.service === 'twitter' ||
+      profile.service === 'facebook' ||
+      isInstagramAnalyticsSupported(profile)),
 })
