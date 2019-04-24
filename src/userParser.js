@@ -21,6 +21,7 @@ module.exports = userData => ({
   has_simplified_free_plan_ux: userData.features.includes(
     'has_simplified_free_plan_ux',
   ),
+  hasIGAnalyticsFeature: userData.features.includes('ig_analytics_overview'),
   hasIGLocationTaggingFeature: userData.features.includes(
     'instagram-location-tagging',
   ),
