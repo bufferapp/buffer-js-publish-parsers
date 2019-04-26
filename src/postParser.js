@@ -160,9 +160,7 @@ module.exports = post => {
     ? parseTwitterLinks(retweetComment)
     : []
 
-  const isFixed = Boolean(
-    post.pinned || post.scheduled_at || post.due_at === 0 || post.error,
-  )
+  const isFixed = Boolean(post.error)
 
   const isPastDue = isInThePast(post.scheduled_at)
 
