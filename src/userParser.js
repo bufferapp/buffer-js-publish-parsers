@@ -1,3 +1,6 @@
+const hasProTrialExpired = trials =>
+  trials.some(trial => trial.is_awesome && trial.status === 'expired')
+
 module.exports = userData => ({
   id: userData.id,
   email: userData.email,
@@ -43,6 +46,10 @@ module.exports = userData => ({
     celebrations: userData.email_notifications.includes('celebrations'),
   },
   canStartBusinessTrial: userData.can_start_business_trial,
+  shouldShowProTrialExpiredModal:
+    hasProTrialExpired(userData.feature_trials) &&
+    userData.plan === 'free' &&
+    !userData.has_cancelled,
   trial: userData.on_awesome_trial
     ? {
         hasCardDetails: userData.has_card_details,
