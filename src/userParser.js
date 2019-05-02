@@ -1,3 +1,6 @@
+const hasProTrialExpired = trials =>
+  trials.some(trial => trial.is_awesome && trial.status === 'expired')
+
 module.exports = userData => ({
   id: userData.id,
   email: userData.email,
@@ -43,6 +46,10 @@ module.exports = userData => ({
     celebrations: userData.email_notifications.includes('celebrations'),
   },
   canStartBusinessTrial: userData.can_start_business_trial,
+  showProTrialExpiredModal:
+    hasProTrialExpired(userData.feature_trials) &&
+    userData.plan === 'free' &&
+    !userData.has_cancelled,
   trial: userData.on_awesome_trial
     ? {
         hasCardDetails: userData.has_card_details,
@@ -51,6 +58,7 @@ module.exports = userData => ({
         postTrialCost: '',
         trialLength: userData.awesome_trial_length,
         trialTimeRemaining: userData.awesome_trial_time_remaining,
+        hasCancelled: userData.has_cancelled,
       }
     : {
         hasCardDetails: userData.has_card_details,
@@ -59,6 +67,8 @@ module.exports = userData => ({
         postTrialCost: userData.post_trial_cost,
         trialLength: userData.trial_length,
         trialTimeRemaining: userData.trial_time_remaining,
+        hasCancelled: userData.has_cancelled,
+        hasProTrialExpired: hasProTrialExpired(userData.feature_trials),
       },
   messages: userData.messages,
   isNonprofit: userData.billing_status_nonprofit,
