@@ -51,7 +51,7 @@ module.exports = userData => ({
     userData.plan === 'free' &&
     !userData.has_cancelled,
   shouldShowBusinessTrialExpiredModal:
-    userData.trial_plan === 'business' && userData.trial_expired === true,
+    userData.trial_plan === 'business' && userData.trial_expired,
   trial: userData.on_awesome_trial
     ? {
         hasCardDetails: userData.has_card_details,
