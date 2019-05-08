@@ -76,4 +76,5 @@ module.exports = userData => ({
       },
   messages: userData.messages,
   isNonprofit: userData.billing_status_nonprofit,
+  orgUserCount: userData.org_user_count,
 })
