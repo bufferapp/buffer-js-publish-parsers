@@ -69,5 +69,5 @@ module.exports = userData => ({
       },
   messages: userData.messages,
   isNonprofit: userData.billing_status_nonprofit,
-  orgTeamMemberUsage: userData.org_team_member_usage,
+  orgUserCount: userData.org_user_count,
 })
