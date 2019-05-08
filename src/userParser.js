@@ -9,9 +9,12 @@ const isOnBusinessPlan = trialPlan =>
 module.exports = userData => ({
   id: userData.id,
   email: userData.email,
+  createdAt: userData.created_at,
   features: userData.features,
   hasTwentyFourHourTimeFormat: userData.twentyfour_hour_time,
   imageDimensionsKey: userData.imagedimensions_key,
+  plan: userData.plan,
+  planCode: userData.plan_code,
   is_business_user: userData.plan_code >= 9 && userData.plan_code <= 19,
   is_free_user: userData.plan === 'free',
   messages: userData.messages || [],
