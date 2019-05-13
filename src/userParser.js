@@ -9,6 +9,7 @@ const isOnBusinessPlan = trialPlan =>
 module.exports = userData => ({
   id: userData.id,
   email: userData.email,
+  name: userData.name,
   createdAt: userData.created_at,
   features: userData.features,
   hasTwentyFourHourTimeFormat: userData.twentyfour_hour_time,
@@ -81,4 +82,5 @@ module.exports = userData => ({
   isNonprofit: userData.billing_status_nonprofit,
   orgUserCount: userData.org_user_count,
   profileCount: userData.profile_usage,
+  showReturnToClassic: userData.features.includes('paid_users_in_new_publish'),
 })
